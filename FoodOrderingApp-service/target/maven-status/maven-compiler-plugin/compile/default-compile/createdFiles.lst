@@ -2,6 +2,7 @@ com\upgrad\FoodOrderingApp\service\businness\SignupCustomerBusinessService.class
 com\upgrad\FoodOrderingApp\service\exception\CouponNotFoundException.class
 com\upgrad\FoodOrderingApp\service\exception\CustomerNotFoundException.class
 com\upgrad\FoodOrderingApp\service\exception\ItemNotFoundException.class
+com\upgrad\FoodOrderingApp\service\entity\CustomerAuthTokenEntity.class
 com\upgrad\FoodOrderingApp\service\exception\AuthenticationFailedException.class
 com\upgrad\FoodOrderingApp\service\businness\JwtTokenProvider.class
 com\upgrad\FoodOrderingApp\service\dao\CustomerDao.class
@@ -14,6 +15,7 @@ com\upgrad\FoodOrderingApp\service\exception\RestaurantNotFoundException.class
 com\upgrad\FoodOrderingApp\service\entity\CustomerEntity.class
 com\upgrad\FoodOrderingApp\service\exception\UpdateCustomerException.class
 com\upgrad\FoodOrderingApp\service\exception\SignUpRestrictedException.class
+com\upgrad\FoodOrderingApp\service\businness\LoginBusinessService.class
 com\upgrad\FoodOrderingApp\service\exception\SaveAddressException.class
 com\upgrad\FoodOrderingApp\service\exception\AuthorizationFailedException.class
 com\upgrad\FoodOrderingApp\service\exception\AddressNotFoundException.class

@@ -9,6 +9,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 //import javax.validation.constraints.Pattern;
+import java.util.Base64;
 import java.util.regex.Matcher;
 
 import java.util.regex.Pattern;
@@ -128,6 +129,41 @@ public class CustomerEntity implements Serializable{
     public void setSalt(String salt) {
         this.salt = salt;
     }
+
+    /*
+
+    public  boolean checkContactNumberIsValid(String contactNumber){
+        String regexStr = "^[0-9]{10}$";
+       if( contactNumber.matches(regexStr)){
+           return true;
+       }
+       else return false;
+    }
+
+    public  boolean checkPasswordIsValid(String password){
+       if( password.length() < 8 || !password.matches("(?=.*[0-9]).*") || !password.matches("(?=.*[A-Z]).*")|| !password.matches("(?=.*[~!@#$%^&*()_-]).*")){
+           return false;
+       }
+
+            return true;
+
+    }
+
+    public  boolean checkAuthenticationFormat(String authorization){
+        String regexStr = "^[0-9]{10}$";
+        byte[] decode = Base64.getDecoder().decode(authorization.split("Basic ")[1]);
+        String decodedText = new String(decode);
+        String[] decodedArray = decodedText.split(":");
+
+        String basic = authorization.split("Basic")[1];
+        if(basic.indexOf("Basic") == 0 && decodedText.contains(":") && checkContactNumberIsValid(decodedArray[0]) && checkPasswordIsValid(decodedArray[1]) ){
+           return  true;
+        }
+        else {
+            return false;
+        }
+    }
+    */
 
     @Override
     public int hashCode() {
