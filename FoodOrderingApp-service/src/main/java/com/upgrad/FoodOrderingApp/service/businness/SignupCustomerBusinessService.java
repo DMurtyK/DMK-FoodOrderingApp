@@ -57,7 +57,7 @@ public class SignupCustomerBusinessService  {
             String[] encryptedText = passwordCryptographyProvider.encrypt(customerEntity.getPassword());
             customerEntity.setSalt(encryptedText[0]);
             customerEntity.setPassword(encryptedText[1]);
-            return this.customerDao.createUser(customerEntity);
+            return customerDao.createUser(customerEntity);
         }
     }
 

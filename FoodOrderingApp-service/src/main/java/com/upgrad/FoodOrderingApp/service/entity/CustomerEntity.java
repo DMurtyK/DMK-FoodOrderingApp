@@ -130,7 +130,7 @@ public class CustomerEntity implements Serializable{
         this.salt = salt;
     }
 
-    /*
+
 
     public  boolean checkContactNumberIsValid(String contactNumber){
         String regexStr = "^[0-9]{10}$";
@@ -163,7 +163,7 @@ public class CustomerEntity implements Serializable{
             return false;
         }
     }
-    */
+
 
     @Override
     public int hashCode() {
