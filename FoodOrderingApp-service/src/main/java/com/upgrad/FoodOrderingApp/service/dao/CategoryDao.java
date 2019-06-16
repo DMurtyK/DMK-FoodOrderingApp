@@ -35,10 +35,10 @@ public class CategoryDao {
         }
     }
 
-    public List<CategoryItemEntity> getItemByCategoryId(Integer category_id){
+    public List<CategoryItemEntity> getItemByCategoryId(CategoryEntity categoryEntity){
 
         try {
-            return this.entityManager.createNamedQuery("customerItemByCategoryId", CategoryItemEntity.class).setParameter("category_Id", category_id).getResultList();
+            return this.entityManager.createNamedQuery("customerItemByCategoryId", CategoryItemEntity.class).setParameter("categoryEntity", categoryEntity).getResultList();
         } catch (NoResultException nre) {
             return null ;
         }

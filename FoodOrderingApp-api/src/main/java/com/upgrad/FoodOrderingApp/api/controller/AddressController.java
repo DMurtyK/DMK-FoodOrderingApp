@@ -72,7 +72,7 @@ public class AddressController {
 
 
 
-
+/*
 
     @RequestMapping(method = RequestMethod.DELETE, path = "/address/{address_id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<DeleteAddressResponse> deleteAddress(@PathVariable("address_id") final String address_id,
@@ -99,6 +99,24 @@ public class AddressController {
 
     }
 
+
+    //deleteAddress endpoint deletes the address of a particular customer
+    @RequestMapping(method= RequestMethod.DELETE,path="/address/{address_id}",produces= MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<DeleteAddressResponse> deleteAddress(@PathVariable("address_id") final String addressUuid,
+                                                               @RequestHeader("accessToken") final String accessToken) throws AuthorizationFailedException, AddressNotFoundException {
+
+        String [] bearerToken = accessToken.split("Bearer ");
+        final CustomerEntity signedinCustomerEntity = customerService.getCustomer(bearerToken[1]);
+        final AddressEntity addressEntityToDelete=addressService.getAddressByAddressUuid(addressUuid);
+        final CustomerAddressEntity customerAddressEntity=addressService.getCustomerIdByAddressId(addressEntityToDelete.getId());
+        final CustomerEntity ownerofAddressEntity=customerAddressEntity.getCustomer();
+        final String Uuid = addressService.deleteAddress(addressEntityToDelete,signedinCustomerEntity,ownerofAddressEntity);
+
+        DeleteAddressResponse deleteAddressResponse = new DeleteAddressResponse()
+                .id(UUID.fromString(Uuid))
+                .status("ADDRESS DELETED SUCCESSFULLY");
+        return new ResponseEntity<DeleteAddressResponse>(deleteAddressResponse, HttpStatus.OK);
+    }
 
 
     /* WORK IN PROGRESS */

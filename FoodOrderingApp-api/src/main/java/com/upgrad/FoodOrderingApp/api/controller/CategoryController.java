@@ -56,10 +56,10 @@ public class CategoryController {
     @RequestMapping(method = RequestMethod.GET, path = "/category/{category_id}",consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
    public ResponseEntity<CategoryDetailsResponse> getCategoryById(@PathVariable("category_id")final String category_id) throws CategoryNotFoundException {
 
+      // CategoryEntity categoryEntity = categoryService.categoryById( Long.parseLong(category_id));
+        CategoryEntity categoryEntity = categoryService.categoryById( category_id);
 
-       CategoryEntity categoryEntity = categoryService.categoryById(category_id);
-
-       List<CategoryItemEntity> categoryItemEntity = categoryService.getItemByCategoryId(categoryEntity.getId().intValue());
+       List<CategoryItemEntity> categoryItemEntity = categoryService.getItemByCategoryId(categoryEntity);
 
        List<CategoryDetailsResponse> categoryDetailsResponseList=new ArrayList<CategoryDetailsResponse>();
 
@@ -88,6 +88,8 @@ public class CategoryController {
 
         return new ResponseEntity<CategoryDetailsResponse>(categoryDetailsResponse, HttpStatus.OK);
     }
+
+
 
 
 
